@@ -37,10 +37,6 @@ Tools like the classic type chart, which lets you check your temtem weaknesses a
 
   - *Data handling & using APIs*
   - *General syntax*
-  
-## 📷 App screenshots
-<img src="https://github.com/JoelEncinas/Lux/blob/main/demo_imgs/demo1.PNG" alt="demo" width="220" height="360"/> <img src="https://github.com/JoelEncinas/Lux/blob/main/demo_imgs/demo2.PNG" alt="demo" width="220" height="360"/> <img src="https://github.com/JoelEncinas/Lux/blob/main/demo_imgs/demo3.PNG" alt="demo" width="220" height="360"/> <img src="https://github.com/JoelEncinas/Lux/blob/main/demo_imgs/demo4.PNG" alt="demo" width="220" height="360"/> <img src="https://github.com/JoelEncinas/Lux/blob/main/demo_imgs/demo5.PNG" alt="demo" width="220" height="360"/> <img src="https://github.com/JoelEncinas/Lux/blob/main/demo_imgs/demo6.PNG" alt="demo" width="220" height="360"/> <img src="https://github.com/JoelEncinas/Lux/blob/main/demo_imgs/demo7.PNG" alt="demo" width="220" height="360"/>
-
 
 ## 💿 Test the app locally
 
@@ -65,3 +61,9 @@ Run the app:
 - `flask --app zadar run --debug`
 
 Open http://localhost:5000 to view it in your browser.
+  
+## 📷 App screenshots
+<img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/login.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/register.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/profile.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/tempedia1.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/tempedia2.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/type_chart.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/new_post.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/post.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/weakness_calculator1.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/weakness_calculator2.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/techniques1.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/techniques2.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/traits.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/patch.PNG" alt="demo" width="490" height="450"/> <img src="https://github.com/JoelEncinas/Zadar/blob/main/demo_imgs/edit_post.PNG" alt="demo" width="490" height="450"/>
+
+
+
