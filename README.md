@@ -14,6 +14,8 @@ Tools like the classic type chart, which lets you check your temtem weaknesses a
 
   - *Creating a full-stack Flask application*
   - *User authentication*
+    - *register, login and logout*
+    - *logged user protected routes*
     - *session*
     - *before_app_request decorator for logged user*
   - *Routing*
