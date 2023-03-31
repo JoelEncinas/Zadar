@@ -1,0 +1,20 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="display-4">{% block title %}About{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+    <h2>The Idea</h2>
+    <p>I played <a href="https://crema.gg/games/temtem/" target="_blank">Temtem</a> a long time ago, when it was in beta and I had a blast. It was a challenging game. The combat was improved upon its rival Pokemon, adding more layers of complexity, and the overall MMORPG was an enhancing experience lacking in other genre-like games.</p>
+    <p>That's why I decided to build a site where you can share your experiences, look up different temtem information to guide you in your journey and ultimately use the page as a tool to enhance the gaming experience.</p>
+
+    <h2>Features</h2>
+    <ul>
+    <li><p>A social media type page where you can share everything about the temtem universe, your opinions about the features of the game and discussions related to battle strategies.</p></li>
+    <li><p>Information about every Temtem, including their traits, techniques, and different stats, presented in a delightful UI.</p></li>
+    <li><p>The classic type chart, which lets you check your temtem weaknesses and strengths and a technique effectiveness calculator.</p></li>
+</ul>
+    <h2>The Stack</h2>
+    <p>The app is built using <span class="text-info">Python</span> and <span class="text-info">Flask</span>, which uses <span class="text-info">sqlite3</span> and consequently <span class="text-info">SQL</span> to query all the data about the users and the posts. It connects with a fan-made <a href="https://temtem-api.mael.tech/" target="_blank">api</a> fetching a bunch of data about the temtem universe. Lastly, it uses <span class="text-info">Jinja</span> for the templating and a <span class="text-info">Bootstrap</span> theme for the styling.</p>
+{% endblock %}

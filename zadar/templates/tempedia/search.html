@@ -1,0 +1,13 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="display-4">{% block title %}Tempedia{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  {% include 'tempedia/tempedia_form.html' %}
+</div>
+
+{% include 'tempedia/temtem_list.html' %}
+{% endblock %}

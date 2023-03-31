@@ -1,0 +1,102 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 class="display-4">{% block title %}Effectiveness{% endblock%}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container efectiveness-result">
+    <table class="table text-center">
+        <thead>
+            <tr>
+                <th scope="col">Temtem</th>
+                <th scope="col">Type</th>
+            </tr>
+        </thead>
+        <tbody>
+            <tr>
+              <td scope="row">
+                <img class="weakness-calculator-img-small" src="{{ url_for('static', filename='img/stats/atk.png') }}"> Attacking
+              </td>
+              <td>
+                <img class="calculator-type-img" src="{{ type_img_endpoint}}{{ result['attacking'] }}.png" data-toggle="tooltip" data-placement="right" title="{{ result['attacking'] }}" alt="{{ result['attacking'] }}">
+              </td>
+            </tr>
+            {% if result['defending'] | length == 1 %}
+            <tr>
+              <td scope="row">
+                <img class="weakness-calculator-img-small" src="{{ url_for('static', filename='img/stats/def.png') }}"> Defending
+              </td>
+              <td>
+                <img class="calculator-type-img" src="{{ type_img_endpoint}}{{ result['defending'][0] }}.png" data-toggle="tooltip" data-placement="right" title="{{ result['defending'][0] }}" alt="{{ result['defending'][0] }}">
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">
+                Modifier
+              </td>
+              <td>
+                <span class="fw-bold">x{{ result['modifiers'][0] }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">
+                Result
+              </td>
+              <td>
+                <span class="fw-bold">x{{ result['result'] }}</span>
+              </td>
+            </tr>
+            {% else %}
+            <tr>
+              <td scope="row">
+                <img class="weakness-calculator-img-small" src="{{ url_for('static', filename='img/stats/def.png') }}"> Defending 1
+              </td>
+              <td>
+                <img class="calculator-type-img" src="{{ type_img_endpoint}}{{ result['defending'][0] }}.png" data-toggle="tooltip" data-placement="right" title="{{ result['defending'][0] }}" alt="{{ result['defending'][0] }}">
+              </td>
+            </tr>
+            <tr>
+            <tr>
+              <td scope="row">
+                <img class="weakness-calculator-img-small" src="{{ url_for('static', filename='img/stats/def.png') }}"> Defending 2
+              </td>
+              <td>
+                <img class="calculator-type-img" src="{{ type_img_endpoint}}{{ result['defending'][1] }}.png" data-toggle="tooltip" data-placement="right" title="{{ result['defending'][1] }}" alt="{{ result['defending'][1] }}">
+              </td>
+            </tr>
+            <tr>    
+              <td scope="row">
+                  Modifier 1
+              </td>
+              <td>
+                <span class="fw-bold">x{{ result['modifiers'][0] }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">
+                Modifier 2
+              </td>
+              <td>
+                <span class="fw-bold">x{{ result['modifiers'][1] }}</span>
+              </td>
+            </tr>
+            <tr>
+              <td scope="row">
+                Result
+              </td>
+              <td>
+                <span class="fw-bold">x{{ result['result'] }}</span>
+              </td>
+            </tr>
+            {% endif %}
+        </tbody>
+    </table>
+
+    <div class="text-center my-4">
+        <a href="{{ url_for('weaknesses_calculator.calculate') }}" class="btn btn-outline-primary">Back to calculator</a>
+    </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/activateTooltip.js') }}"></script>
+{% endblock %}

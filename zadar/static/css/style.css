@@ -1,0 +1,271 @@
+/* UTILS */
+.container {
+    max-width: 768px;
+}
+
+.flash {
+    margin: 1em 0;
+    padding: 1em;
+    border: 1px solid #ff7851;
+}
+
+.alert {
+    padding: 0.75rem 1.25rem;
+    border: 1px solid transparent;
+    border-radius: 0.25rem;
+    transition: opacity 0.75s ease-out;
+}
+
+.has-tooltip:hover {
+    cursor: help;
+}
+
+h1,
+h2,
+h3,
+h4,
+h5,
+h6,
+.display-4 {
+    font-weight: 900;
+    padding-top: 20px;
+    padding-bottom: 20px;
+}
+
+p {
+    font-size: 18px;
+    line-height: 26px;
+    margin-bottom: 20px;
+}
+
+.custom-hr {
+    width: 95%;
+    font-size: 1px;
+    color: rgba(0, 0, 0, 0);
+    line-height: 1px;
+
+    background-color: grey;
+    margin-top: -6px;
+    margin-bottom: 30px;
+}
+
+textarea {
+    min-height: 90px !important;
+}
+
+/* AUTH */
+.auth-form {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+/* NAVBAR */
+.navbar-container {
+    max-width: 992px;
+}
+
+.navbar-brand {
+    font-size: 23px;
+}
+
+.nav-item-img {
+    position: relative;
+    padding: 0 20px;
+}
+
+.nav-img {
+    width: 40px;
+    position: absolute;
+    left: -12px;
+    top: 0;
+}
+
+@media only screen and (max-width: 768px) {
+    .nav-item-img {
+        padding: 0 40px;
+    }
+}
+
+/* TEMPEDIA */
+
+.temtem-container {
+    width: 100%;
+    max-width: 768px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+@media only screen and (max-width: 992px) {
+    .temtem-container {
+        max-width: 480px;
+    }
+}
+
+.temtem-header {
+    padding-bottom: 0;
+    margin-bottom: 0;
+}
+
+.tempedia-form {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.type-img,
+.temtem-img-search {
+    width: 23px;
+    border-radius: 10px;
+}
+
+.temtem-img {
+    width: 100px;
+}
+
+/* TYPE CHART */
+
+.type-chart-container {
+    margin-right: 50px;
+}
+
+.type-chart-img {
+    width: 30px;
+}
+
+.type-chart-img:hover {
+    cursor: help;
+}
+
+.vertical-text {
+    width: 1px;
+    word-wrap: break-word;
+    white-space: pre-wrap;
+    line-height: 1;
+}
+
+.table>:not(caption)>*>* {
+    padding: 0.2rem !important;
+}
+
+@media only screen and (max-width: 768px) {
+    .type-chart-container {
+        margin-right: 0;
+    }
+
+    .type-chart-img {
+        width: 20px;
+    }
+
+    .table>:not(caption)>*>* {
+        padding: 0.1rem !important;
+    }
+
+    .type-chart-header {
+        display: none;
+    }
+
+    td,
+    th {
+        font-size: 13px;
+    }
+}
+
+/* WEAKNESSES CALCULATOR */
+
+.weakness-calculator-form,
+.efectiveness-result {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.weakness-calculator-img {
+    width: 30px;
+}
+
+.weakness-calculator-img-small {
+    width: 20px;
+}
+
+.calculator-type-img {
+    width: 25px;
+}
+
+.calculator-type-img:hover {
+    cursor: help;
+}
+
+/* TECHNIQUES */
+.techniques-form {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.technique-img-search {
+    width: 25px;
+}
+
+.technique-img,
+.priority-img {
+    width: 25px;
+}
+
+.technique-container {
+    width: 100%;
+    max-width: 576px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+/* TRAITS */
+
+.traits-form {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+/* POSTS - PROFILE */
+
+.profile-container,
+.filter-container,
+.post-container {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.posts-container {
+    width: 100%;
+    max-width: 576px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.post-body,
+.post {
+    width: 100%;
+    max-width: 360px;
+    padding: 15px;
+    margin: 0 auto;
+}
+
+.post {
+    margin-bottom: 20px;
+}
+
+.post-text {
+    font-size: 21px;
+}
+
+.like-text {
+    font-size: 18px;
+}

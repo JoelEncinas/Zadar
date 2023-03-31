@@ -1,0 +1,14 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="display-4">{% block title %}Not Found{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  {% include 'tempedia/tempedia_form.html' %}
+  <p class="alert alert-danger text-center my-3">Temtem not found!</p>
+</div>
+
+{% include 'tempedia/temtem_list.html' %}
+{% endblock %}

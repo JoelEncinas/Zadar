@@ -1,0 +1,46 @@
+{% extends 'base.html' %} 
+
+{% block header %}
+  <h1 class="display-4">{% block title %}Type Chart{% endblock %}</h1>
+{% endblock %} 
+
+{% block content %}
+<div class="d-flex align-items-center justify-content-center">
+  <div class="type-chart-container">
+    <h2 class="type-chart-header vertical-text">Attacker</h2>
+  </div>
+  <div>
+    <h2 class="type-chart-header text-center">Defender</h2>
+    <table class="table table-bordered text-center">
+      <thead>
+        <tr>
+          <th scope="col"></th>
+          {% for type in weaknesses %}
+          <th><img class="type-chart-img" src="{{ type_img_endpoint }}{{ type }}.png" 
+            data-toggle="tooltip" data-placement="top" title="{{ type }}"></th>
+          {% endfor %}
+        </tr>
+      </thead>
+      <tbody>
+        {% for type1, row in weaknesses.items() %}
+        <tr>
+          <th scope="row"><img class="type-chart-img" src="{{ type_img_endpoint }}{{ type1 }}.png"
+            data-toggle="tooltip" data-placement="top" title="{{ type1 }}"></th>
+            {% for type2, value in row.items() %}
+              {% if value > 1 %}
+                <td class="bg-primary text-white">2x</td>
+              {% elif value < 1 %}
+                <td class="bg-secondary text-black">0.5x</td>
+              {% else %}
+                <td></td>
+              {% endif %}
+            {% endfor %}
+        </tr>
+        {% endfor %}
+      </tbody>
+    </table>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/activateTooltip.js') }}"></script>
+{% endblock %}

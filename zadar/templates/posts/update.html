@@ -1,0 +1,49 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="display-4"><small class="text-muted fw-normal">Edit</small> - {% block title %}{{ post['title'] }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="post-container">
+    <form method="POST">
+      <div class="form-group">
+        <label class="form-label mt-4" for="title">Title</label>
+        <input class="form-control" name="title" id="title"
+        value="{{ request.form['title'] or post['title'] }}" maxlength="30" required>
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-4" for="category">Category</label>
+        <select class="form-control" name="category" id="category">
+          {% for category in categories %}
+            {% if request.form['category'] == category %}
+              <option selected>{{ category }}</option>
+            {% else %}
+              <option>{{ category }}</option>
+            {% endif %}
+          {% endfor %}
+        </select>
+      </div>
+      <div class="form-group">
+        <label class="form-label mt-4" for="body">Body</label>
+        <textarea class="form-control" name="body" id="body" maxlength="100">{{ request.form['body'] or post['body'] }}</textarea>
+        <div id="character-counter">0/100</div>
+      </div>
+      <div class="text-center py-3">
+        <input class="btn btn-outline-primary" type="submit" value="Save">
+      </div>
+
+      {% include 'flash_msg.html' %}
+    </form>
+
+    <div class="text-center py-3">
+      <form class="d-inline" action="{{ url_for('posts.delete', id=post['id']) }}" method="POST">
+          <input class="btn btn-outline-danger" type="submit" value="Delete" onclick="return confirm('Are you sure?');">
+      </form>
+    </div>
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/characterCounter.js') }}"></script>
+{% endblock %}

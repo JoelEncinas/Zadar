@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="display-4 pb-0">{% block title %}{{ g.user['username'] }}{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="profile-container text-center">
+    <div class="mb-2">
+      <span class="badge bg-success has-tooltip" data-toggle="tooltip" data-placement="top" title="Created an account">Welcome!</span>
+      {% if likes + dislikes >= 10 %}
+        <span class="badge bg-light has-tooltip" data-toggle="tooltip" data-placement="top" title="Casted 10 or more votes">Active voter</span>
+      {% endif %}
+      {% if posts_count >= 1 %}
+        <span class="badge bg-light has-tooltip" data-toggle="tooltip" data-placement="top" title="Created 1 or more posts">Newbie</span>
+      {% endif %}
+      {% if posts_count >= 10 %}
+        <span class="badge bg-dark has-tooltip" data-toggle="tooltip" data-placement="top" title="Created 10 or more posts">Veteran</span>
+      {% endif %}
+    </div>
+
+    <div class="mb-3">
+      <small><span class="fw-bold">Created on</span> <span class="fst-italic">{{ date }}</span></small>
+    </div>
+
+    <div>
+      <table class="table text-center">
+        <tbody>
+        <tr>
+            <th scope="row">Posts</th>
+            <td>{{ posts_count }}</td>
+        </tr>
+        <tr>
+          <th scope="row">Likes / Dislikes</th>
+          <td><span class="text-primary fw-bold">{{ likes }}</span> / <span class="text-danger fw-bold">{{ dislikes }}</span></td>
+        </tr>
+        <tr>
+          <th scope="row">Total Votes</th>
+          <td>{{ likes + dislikes }}</td>
+        </tr>
+        </tbody>
+      </table>
+    </div>
+  </div>
+
+  {% include 'posts/create_post_button.html' %}
+</div>
+
+<div class="container">
+  <h2 class="text-center pb-0 pt-5">My Posts</h2>
+  <div class="filter-container text-center">
+    <form method="post" action="{{ url_for('posts.get_profile') }}">
+      {% include 'posts/posts_filter.html' %}
+    </form>
+  </div>
+</div>
+
+{% include 'posts/posts_container.html' %}
+
+<div class="container d-flex justify-content-center pt-5">
+  <ul class="pagination">
+    {% if prev_page is not none %}
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('posts.get_profile', page=prev_page, category=category) }}">Previous</a>
+      </li>
+    {% endif %}
+
+    {% for page_num in range(1, total_pages + 1) %}
+      {% if page_num == page %}
+        <li class="page-item active">
+          <a class="page-link" href="#">{{ page_num }}</a>
+        </li>
+      {% else %}
+        <li class="page-item">
+          <a class="page-link" href="{{ url_for('posts.get_profile', page=page_num, category=category) }}">{{ page_num }}</a>
+        </li>
+      {% endif %}
+    {% endfor %}
+    {% if next_page is not none %}
+      <li class="page-item">
+        <a class="page-link" href="{{ url_for('posts.get_profile', page=next_page, category=category) }}">Next</a>
+      </li>
+    {% endif %}
+  </ul>
+</div>
+
+<script src="{{ url_for('static', filename='js/activateTooltip.js') }}"></script>
+{% endblock %}

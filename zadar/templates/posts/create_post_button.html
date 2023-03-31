@@ -1,0 +1,5 @@
+{% if g.user %}
+<div class="text-center my-3">
+  <a class="btn btn-primary" href="{{ url_for('posts.create') }}">New Post</a>
+</div>
+{% endif %}

@@ -1,0 +1,46 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 class="display-4">{% block title %}Weaknesses Calculator{% endblock%}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+    <form class="weakness-calculator-form" method="POST">
+        <div class="form-group">
+            <label class="form-label mt-4" for="attacking">
+                <img class="weakness-calculator-img" src="{{ url_for('static', filename='img/stats/atk.png') }}"> Attacking Type
+            </label>
+            <select name="attacking" class="form-control" required>
+                {% for type_name in types %}
+                    <option value="{{ type_name }}">{{ type_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label mt-4" for="defending1">
+                <img class="weakness-calculator-img" src="{{ url_for('static', filename='img/stats/def.png') }}"> Defending Type 1
+            </label>
+            <select name="defending1" id="defending1" class="form-control" required>
+                {% for type_name in types %}
+                    <option value="{{ type_name }}">{{ type_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="form-group">
+            <label class="form-label mt-4" for="defending2">
+                <img class="weakness-calculator-img" src="{{ url_for('static', filename='img/stats/def.png') }}"> Defending Type 2
+            </label>
+            <select name="defending2" id="defending2" class="form-control" required>
+                <option value="no-type">No Type</option>
+                {% for type_name in types %}
+                    <option value="{{ type_name }}">{{ type_name }}</option>
+                {% endfor %}
+            </select>
+        </div>
+        <div class="text-center my-3">
+            <button type="submit" class="btn btn-outline-primary">Calculate</button>
+        </div>
+    </form>
+</div>
+{% endblock %}

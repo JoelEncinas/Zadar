@@ -1,0 +1,16 @@
+<div class="form-group text-center">
+    <label class="form-label h5" for="category">Category</label>
+    <select class="form-control form-control-sm w-50 text-center mx-auto" name="category" id="category">
+        <option value="ALL">ALL</option>
+        {% for category in categories %}
+        {% if request.form['category'] == category %}
+            <option selected>{{ category }}</option>
+        {% else %}
+            <option>{{ category }}</option>
+        {% endif %}
+        {% endfor %}
+    </select>
+</div>
+<div class="text-center py-3">
+    <button type="submit" class="btn btn-sm btn-outline-primary">Filter</button>
+</div>

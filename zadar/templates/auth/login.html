@@ -1,0 +1,21 @@
+{% extends 'base.html' %} 
+
+{% block header %}
+  <h1 class="display-4">{% block title %}Log in{% endblock%}</h1>
+{% endblock %} 
+
+{% block content %}
+  <div class="container">
+    <form class="auth-form" method="post">
+      {% include 'auth/auth_form.html' %}
+      <div class="text-center my-3">
+        <input class="btn btn-outline-primary" type="submit" value="Log in" />
+      </div>
+      <div class="text-center py-2">
+        <p>Don't have an account yet? <a href="{{ url_for('auth.register')}}">Register</a></p>
+      </div>
+
+      {% include 'flash_msg.html' %}
+    </form>
+  </div>
+{% endblock %}

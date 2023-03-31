@@ -1,0 +1,29 @@
+<div class="container">
+    <div class="posts-container">
+      {% for post in posts %}
+        <div class="card post">
+          <div class="card-body post-body">
+            <h2 class="card-title py-1"><a href="{{ url_for('posts.post', id=post['id']) }}">{{ post['title'] }}</a></h2>
+            <h6 class="card-subtitle py-1">
+              <span class="fw-normal">By</span> {{ post['username'] }} &nbsp;
+              <small class="text-muted fst-italic">{{ post['created'].strftime('%Y-%m-%d') }}</small> &nbsp;
+              {% if post['category'] == categories[0] %}
+              <span class="badge bg-primary">General</span>
+              {% endif %}
+              {% if post['category'] == categories[1] %}
+                <span class="badge bg-secondary">Temtemup</span>
+              {% endif %}
+              {% if post['category'] == categories[2] %}
+                <span class="badge bg-info">Opinion</span>
+              {% endif %}
+            </h6>
+            <p class="card-text mt-3 post-text">{{ post['body'] }}</p>
+            {% if g.user['id'] == post['author_id'] %}
+              <a class="action" href="{{ url_for('posts.update', id=post['id']) }}">Edit</a>
+            {% endif %}
+          </div>
+        </a>
+      </div>
+    </div>
+    {% endfor %}
+</div>

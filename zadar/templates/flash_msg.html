@@ -1,0 +1,5 @@
+{% for message in get_flashed_messages() %}
+    <div class="alert alert-danger text-center my-3">
+        <strong>{{ message }}</strong>
+    </div>
+{% endfor %}

@@ -1,0 +1,89 @@
+{% extends 'base.html' %}
+
+{% block header %}
+  <h1 class="display-4">{% block title %}Post Info{% endblock %}</h1>
+{% endblock %}
+
+{% block content %}
+<div class="container">
+  <div class="post-container">
+    <div class="card post">
+      <div class="card-body post-body">
+        <h2 class="card-title py-1">{{ post['title'] }}</h2>
+        <h6 class="card-subtitle py-1">
+          <span class="fw-normal">By</span> {{ post['username'] }} &nbsp;
+          <small class="fst-italic fw-light text-muted">{{ post['created'].strftime('%Y-%m-%d') }}</small> &nbsp;
+          {% if post['category'] == categories[0] %}
+          <span class="badge bg-primary">General</span>
+          {% endif %}
+          {% if post['category'] == categories[1] %}
+            <span class="badge bg-secondary">Temtemup</span>
+          {% endif %}
+          {% if post['category'] == categories[2] %}
+            <span class="badge bg-info">Opinion</span>
+          {% endif %}
+        </h6>
+        <p class="card-text mt-3 post-text">{{ post['body'] }}</p>
+        {% if g.user['id'] == post['author_id'] %}
+          <a class="action" href="{{ url_for('posts.update', id=post['id']) }}">Edit</a>
+        {% endif %}
+
+        <div class="my-2">
+          <form class="d-inline" action="{{ url_for('posts.like_post', id=post['id']) }}" method="POST">
+            <input name="like" id="like" value="like" hidden>
+            <span class="like-text">{{ likes.likes }}</span>
+            &nbsp;
+            <input class="btn btn-sm btn-outline-info" type="submit" value="Like">
+          </form>
+          &nbsp;
+          <form class="d-inline" action="{{ url_for('posts.like_post', id=post['id']) }}" method="POST">
+            <input name="dislike" id="dislike" value="dislike" hidden>
+            <span class="like-text">{{ likes.dislikes }}</span>
+            &nbsp;
+            <input class="btn btn-sm btn-outline-danger" type="submit" value="Dislike">
+          </form>
+        </div>
+      </div>
+    </div>
+
+    {% for message in get_flashed_messages() %}
+      <div class="alert alert-danger text-center my-3">
+        <strong>{{ message }}</strong>
+      </div>
+    {% endfor %}
+
+    <div class="comments">
+      {% if g.user %}
+        <h2 class="pb-0">Add a comment</h2>
+        <form action="{{ url_for('posts.post', id=post['id']) }}" method="POST">
+          <div class="form-group">
+            <label class="form-label mt-2" for="body">Comment:</label>
+            <textarea class="form-control" id="body" name="body" maxlength="100" required></textarea>
+            <div id="character-counter">0/100</div>
+          </div>
+          <div class="text-center my-3 pb-5">
+            <input class="btn btn-primary" type="submit" value="Add Comment">
+          </div>
+        </form>
+      {% endif %}
+
+      <h2>Comments</h2>
+      {% if comments%}
+        {% for comment in comments %}
+          <div class="comment">
+            <span class="fw-normal">By</span> <span class="fw-bold">{{ comment['username'] }}</span> &nbsp;
+            <small class="fst-italic fw-light text-muted">{{ comment['created'].strftime('%Y-%m-%d') }}</small> &nbsp;
+            <p class="pt-1">{{ comment['body'] }}</p>
+          </div>
+          <hr>
+        {% endfor %}
+      {% else %}
+          <p>No comments yet!</p>
+      {% endif %}
+    </div>
+
+  </div>
+</div>
+
+<script src="{{ url_for('static', filename='js/characterCounter.js') }}"></script>
+{% endblock %}

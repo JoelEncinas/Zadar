@@ -1,0 +1,45 @@
+{% extends 'base.html' %}
+
+{% block header %}
+    <h1 class="display-4 mb-0 pb-0">{% block title %}{{ patch['name'] }}{% endblock %}</h1>
+    <small class="text-muted">{{ date }}</small> |
+    <small><a class="text-muted" href="{{ patch['url'] }}" target="_blank">Official Site</a></small>
+{% endblock %}
+
+{% block content %}
+    {% if patch['patchInfo']['fixes'] %}
+        <h2>Fixes</h2>
+        {% for fix in patch['patchInfo']['fixes'] %}
+            <p>
+                {{ fix }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+    {% if patch['patchInfo']['improvements'] %}
+        <h2>Improvements</h2>
+        {% for improvement in patch['patchInfo']['improvements'] %}
+            <p>
+                {{ improvement }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+    {% if patch['patchInfo']['features'] %}
+        <h2>Features</h2>
+        {% for feature in patch['patchInfo']['features'] %}
+            <p>
+                {{ feature }}
+            </p>
+        {% endfor %}
+    {% endif %}
+
+    {% if patch['patchInfo']['balance'] %}
+        <h2>Balance</h2>
+        {% for balance in patch['patchInfo']['balance'] %}
+            <p>
+                {{ balance }}
+            </p>
+        {% endfor %}
+    {% endif %}
+{% endblock %}
