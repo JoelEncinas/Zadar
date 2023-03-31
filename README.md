@@ -1,6 +1,6 @@
 
 
-# 🦝 Zadar
+# 🦁 Zadar
 <img src="https://img.shields.io/badge/-python-blue" alt="python" style="max-width: 100%;"> <img src="https://img.shields.io/badge/-flask-white" alt="flask" style="max-width: 100%;"> <img src="https://img.shields.io/badge/-sqlite3-gray" alt="sqlite3" style="max-width: 100%;"> <img src="https://img.shields.io/badge/-jinja2-red" alt="jinja2" style="max-width: 100%;"> <img src="https://img.shields.io/badge/-bootstrap-purple" alt="bootstrap" style="max-width: 100%;"> 
 
 A social media type page where you can share everything about the temtem universe, your opinions about the features of the game and discussions related to battle strategies.
